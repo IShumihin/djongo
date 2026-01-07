@@ -457,10 +457,10 @@ class _StatementParser:
             if not isinstance(op, (CmpOp, ParenthesisOp)):
                 self._op_precedence(op)
             prev_op = op
-
-        if prev_op.lhs is None:
-            if isinstance(prev_op, (CmpOp, ParenthesisOp)):
-                self._ops.append(prev_op)
+        if prev_op:
+            if prev_op.lhs is None:
+                if isinstance(prev_op, (CmpOp, ParenthesisOp)):
+                    self._ops.append(prev_op)
 
     def _op_precedence(self, operator: _Op):
         ops = self._ops
