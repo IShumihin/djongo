@@ -131,10 +131,12 @@ class DatabaseWrapper(BaseDatabaseWrapper):
         """
         valid_settings = {
             'NAME': 'name',
+            'HOST': 'host',
             'ENFORCE_SCHEMA': 'enforce_schema',
         }
         connection_params = {
             'name': 'djongo_test',
+            'host': 'localhost',
             'enforce_schema': False
         }
         for setting_name, kwarg in valid_settings.items():
